@@ -1,6 +1,7 @@
 import task1.ClassWithException;
 import task10.FGMethodsClass;
 import task2.NullClass;
+import task20.*;
 import task9.AllExceptions;
 
 
@@ -51,7 +52,7 @@ public class Main {
             AllExceptions.trowAllExceptions(1);
             AllExceptions.trowAllExceptions(2);
             AllExceptions.trowAllExceptions(3);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -68,14 +69,14 @@ public class Main {
 
         try {
             fgMethodsClass.g();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        try{
+        try {
             fgMethodsClass.f();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -96,23 +97,53 @@ public class Main {
             System.out.println("Have exception");
             e.printStackTrace();
         } finally {
-            if (nullClass == null){
+            if (nullClass == null) {
                 System.out.println("nullClass == null");
             }
         }
 
 
         /*
-
+        Exercise 20: (3) Modify StormyInning.java by adding an UmpireArgument
+        exception type and methods that throw this exception. Test the modified hierarchy.
          */
 
 
+        try {
+            StormyInning si = new StormyInning();
+            si.atBat();
+        } catch (PopFoul e) {
+            System.out.println("Pop foul");
+        } catch (RainedOut e) {
+            System.out.println("Rained out");
+        } catch (BaseballException e) {
+            System.out.println("Generic baseball exception");
+        }
 
 
 
+        // Strike not thrown in derived version.
 
-
-
-
+        try {
+            // What happens if you upcast?
+            Inning i = new StormyInning();
+            i.atBat();
+            // You must catch the exceptions from the
+            // base-class version of the method:
+        } catch (Strike e) {
+            System.out.println("Strike");
+        } catch (Foul e) {
+            System.out.println("Foul");
+        } catch (RainedOut e) {
+            System.out.println("Rained out");
+        } catch (BaseballException e) {
+            System.out.println("Generic baseball exception");
+        }
     }
+
+    /*
+
+     */
+
+
 }
