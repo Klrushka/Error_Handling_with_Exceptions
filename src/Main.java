@@ -2,7 +2,7 @@ import task1.ClassWithException;
 import task10.FGMethodsClass;
 import task2.NullClass;
 import task9.AllExceptions;
-import task9.Exception3;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -77,6 +77,28 @@ public class Main {
             fgMethodsClass.f();
         } catch (Exception e){
             e.printStackTrace();
+        }
+
+        System.out.println();
+
+
+        /*
+        Exercise 13: (2) Modify Exercise 9 by adding a finally clause. Verify that your finally
+        clause is executed, even if a NullPointerException is thrown.
+
+        ************************************** task9 *********************************************
+         */
+
+
+        try {
+            System.out.println(nullClass.toString());
+        } catch (NullPointerException e) {
+            System.out.println("Have exception");
+            e.printStackTrace();
+        } finally {
+            if (nullClass == null){
+                System.out.println("nullClass == null");
+            }
         }
 
 
