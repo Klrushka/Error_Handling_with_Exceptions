@@ -30,4 +30,8 @@ public class StormyInning extends Inning implements Storm {
     // Overridden methods can throw inherited exceptions:
     public void atBat() throws PopFoul {
     }
+
+    public void loose() throws Loose{
+        throw new Loose();
+    }
 }

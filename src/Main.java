@@ -2,6 +2,7 @@ import task1.ClassWithException;
 import task10.FGMethodsClass;
 import task2.NullClass;
 import task20.*;
+import task25.*;
 import task9.AllExceptions;
 
 
@@ -114,12 +115,15 @@ public class Main {
             si.atBat();
         } catch (PopFoul e) {
             System.out.println("Pop foul");
+        } catch (Loose e) {
+            System.out.println("loose");
+        } catch (UmpireArgument e) {
+            System.out.println("UmpireArgument");
         } catch (RainedOut e) {
             System.out.println("Rained out");
         } catch (BaseballException e) {
             System.out.println("Generic baseball exception");
         }
-
 
 
         // Strike not thrown in derived version.
@@ -134,16 +138,63 @@ public class Main {
             System.out.println("Strike");
         } catch (Foul e) {
             System.out.println("Foul");
+        } catch (Loose e) {
+            System.out.println("loose");
         } catch (RainedOut e) {
             System.out.println("Rained out");
         } catch (BaseballException e) {
             System.out.println("Generic baseball exception");
         }
-    }
+
+        System.out.println();
 
     /*
-
+    Exercise 25: (2) Create a three-level hierarchy of exceptions. Now create a base-class A
+    with a method that throws an exception at the base of your hierarchy. Inherit B from A and
+    override the method so it throws an exception at level two of your hierarchy. Repeat by
+    inheriting class C from B. In main( ), create a C and upcast it to A, then call the method
      */
+
+        A a = new C();
+
+
+        try {
+            a.a();
+        } catch (ThirdException e){
+            System.out.println("First");
+        } catch (SecondException e) {
+            System.out.println("Second");
+        } catch (FirstException e){
+            System.out.println("Third");
+        }
+
+        /*
+        Exercise 29: (1) Modify all the exception types in Stormylnning.java so that they
+        extend RuntimeException, and show that no exception specifications or try blocks are
+        necessary. Remove the ‘//!’ comments and show how the methods can be compiled without
+        specifications.
+         */
+
+
+        task29.StormyInning stormyInning = new task29.StormyInning();
+
+        stormyInning.atBat();
+
+        task29.Inning inning = new task29.StormyInning();
+        inning.atBat();
+
+
+
+
+
+
+
+
+
+
+
+    }
+
 
 
 }
