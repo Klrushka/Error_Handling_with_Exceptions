@@ -1,16 +1,16 @@
 package task10;
 
 public class FGMethodsClass {
-    public void f() throws Exception{
+    public void f() throws Task10ExceptionF{
         try {
             g();
-        } catch (Exception e){
+        } catch (Task10ExceptionG e){
             System.out.println("f() catch g()");
-            throw new Exception("FGMethodClass.f() exception");
+            throw new Task10ExceptionF("FGMethodClass.f() exception");
         }
     }
 
-    public void g() throws Exception{
-        throw new Exception("FGMethodClass.g() exception");
+    public void g() throws Task10ExceptionG{
+        throw new Task10ExceptionG("FGMethodClass.g() exception");
     }
 }

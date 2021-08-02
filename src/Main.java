@@ -1,5 +1,7 @@
 import task1.ClassWithException;
 import task10.FGMethodsClass;
+import task10.Task10ExceptionF;
+import task10.Task10ExceptionG;
 import task2.NullClass;
 import task20.*;
 import task25.*;
@@ -70,14 +72,14 @@ public class Main {
 
         try {
             fgMethodsClass.g();
-        } catch (Exception e) {
+        } catch (Task10ExceptionG e) {
             e.printStackTrace();
         }
 
 
         try {
             fgMethodsClass.f();
-        } catch (Exception e) {
+        } catch (Task10ExceptionF e) {
             e.printStackTrace();
         }
 
